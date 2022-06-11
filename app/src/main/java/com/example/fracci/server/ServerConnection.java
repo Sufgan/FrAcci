@@ -24,27 +24,17 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ServerConnection {
-
     Retrofit retrofit;
     public CrashInterface serv;
     public static Map<Double, Set<Double>> crashesNearMap = new HashMap<Double, Set<Double>>();
     private Context context;
 
-    static public void reportCrash(Crash crash) {
-        Server.reportedCrash(crash);
+    public ServerConnection(Context context){
+        retrofit=new Retrofit.Builder().baseUrl(" https://fracci.herokuapp.com").addConverterFactory(GsonConverterFactory.create()).build();
+        serv=retrofit.create(CrashInterface.class);
+        this.context=context;
     }
 
-    public static void loadNewCrashes(Car car) {
-        Log.i("ServerConnection", "Loading new crashes...");
-        crashesNearMap = Server.getCrashes(GeneralData.car, 0.02);
-        Log.i("ServerConnection", "Loading is complete!");
-    }
-public ServerConnection(Context context){
-    retrofit=new Retrofit.Builder().baseUrl(" https://fracci.herokuapp.com").addConverterFactory(GsonConverterFactory.create()).build();
-    serv=retrofit.create(CrashInterface.class);
-    this.context=context;
-
-}
     public void get(View view) {
         Call<ArrayList<Crash>> call_get=serv.getCoords();
         call_get.enqueue(new Callback<ArrayList<Crash>>() {
@@ -64,6 +54,7 @@ public ServerConnection(Context context){
     public void getApplicationContext(Context context){
         this.context=context;
     }
+
     public void send(View view) {
         Call<Void> call=serv.sendCoords(String.valueOf(GeneralData.car.latitude),String.valueOf(GeneralData.car.longitude));
         class MyThread extends Thread{
@@ -79,7 +70,6 @@ public ServerConnection(Context context){
         }
         MyThread t1=new MyThread();
         t1.start();
-
     }
 
 }
