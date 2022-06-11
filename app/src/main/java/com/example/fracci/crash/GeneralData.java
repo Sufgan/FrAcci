@@ -43,6 +43,10 @@ public class GeneralData {
     private static double A = 10;
     private static final double G = 9.80665;
 
+    // можно добавить анстройки к этип переменным
+    static double maxDistance = 0.02;// 1 km  ~  0.018
+    static double maxVector = 15;
+
     public static Map<Double, Set<Double>> crashesMap = new HashMap<Double, Set<Double>>();
 
     @SuppressLint("MissingPermission")
@@ -66,11 +70,6 @@ public class GeneralData {
                 SPEED);
         Log.i("SensorLidtener", "add " + TYPE_SENSOR);
     }
-
-//    public static void deleteSensor(int TYPE_SENSOR) {
-//        sensorManager.unregisterListener(new SensorListener(), sensorManager.getDefaultSensor(TYPE_SENSOR));
-//        Log.i("SensorLidtener", "delete " + TYPE_SENSOR);
-//    }
 
     public static int getMODE() {
         return MODE;
@@ -150,6 +149,7 @@ public class GeneralData {
                 STOP = true;
             }
             Log.i("LOCATION", car.latitude + "\t" + car.longitude + "\t" + car.vector);
+
             n++;
         }
 

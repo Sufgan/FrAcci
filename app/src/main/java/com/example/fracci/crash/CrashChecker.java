@@ -31,7 +31,6 @@ public class CrashChecker{
                 if (GeneralData.STOP) {
                     Log.i("CRASH", "new detected\t" + car.latitude + "\t" + car.longitude);
                     MainService.serverConnection.send(null);
-                    //CrashRadar.pushNoti();
                 }
             }
         }

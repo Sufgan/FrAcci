@@ -18,6 +18,7 @@ public class CrashRadar {
     Crash crash;
     static String CHANNEL_ID = "Cat channel";
     static Context context;
+
     public CrashRadar() {
         crash = new Crash(0, 0);
         while (RUN) {
@@ -28,9 +29,10 @@ public class CrashRadar {
             }
         }
     }
-CrashRadar(Context context) {
-    this.context = context;
-}
+
+    CrashRadar(Context context) {
+        this.context = context;
+    }
     public void cycle() throws InterruptedException {
         Log.i("TEST", "check crash");
         checkCrash();
@@ -41,7 +43,7 @@ CrashRadar(Context context) {
         for (Double x : GeneralData.crashesMap.keySet()) {
             for (Double y : GeneralData.crashesMap.get(x)) {
                 if (isInRadius(crash = new Crash(x, y))) {
-                    if (isInVector(crash)) {
+                    if (isInVector()) {
                         pushNoti();
                     }
                 }
@@ -51,22 +53,24 @@ CrashRadar(Context context) {
 
     private double zeroLat, zeroLong;
 
-    private boolean isInVector(Crash crash) {
-        double arcAngle = Math.atan(zeroLong / zeroLat);
+    private boolean isInVector() {
+        double arcAngle = Math.toDegrees(Math.atan(zeroLong / zeroLat));
         arcAngle = zeroLat >= 0 ? arcAngle : arcAngle+180;
-        return Math.abs(car.vector - arcAngle) < 15;
+        return Math.abs(car.vector - arcAngle) < GeneralData.maxVector;
     }
 
     private boolean isInRadius(Crash crash) {
         zeroLat = crash.latitude - car.latitude;
         zeroLong = crash.longitude - car.longitude;
-        return Math.abs(zeroLat) < 0.02 && Math.abs(zeroLong) < 0.02;
+        return Math.abs(zeroLat) < GeneralData.maxDistance && Math.abs(zeroLong) < GeneralData.maxDistance;
     }
 
     protected static void pushNoti() {
         Log.i("CrashRadar", "we find the crash");
         // посылка уведомления об аварии
+
         createNotificationChannel();
+
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(context, CHANNEL_ID)
                         .setSmallIcon(R.drawable.ic_baseline_warning_24)
@@ -78,6 +82,7 @@ CrashRadar(Context context) {
                 NotificationManagerCompat.from(context);
         notificationManager.notify(1, builder.build());
     }
+
     private static void createNotificationChannel() {
         // Create the NotificationChannel, but only on API 26+ because
         // the NotificationChannel class is new and not in the support library
@@ -93,6 +98,7 @@ CrashRadar(Context context) {
             notificationManager.createNotificationChannel(channel);
         }
     }
+
     public void stop() {
         RUN = false;
     }

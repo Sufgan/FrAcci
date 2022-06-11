@@ -190,7 +190,7 @@ TextView lattitude1,longitude1,angle1,speed1;
         @Override
         public void onClick(View view) {
             switch (view.getId()) {
-                case R.id.start:
+                case R.id.btn_start:
                     context.startService(new Intent(context.getApplicationContext(), MainService.class));
                     break;
 
