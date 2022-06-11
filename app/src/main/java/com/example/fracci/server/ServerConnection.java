@@ -26,7 +26,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ServerConnection {
     Retrofit retrofit;
     public CrashInterface serv;
-    public static Map<Double, Set<Double>> crashesNearMap = new HashMap<Double, Set<Double>>();
     private Context context;
 
     public ServerConnection(Context context){
@@ -51,6 +50,7 @@ public class ServerConnection {
             }
         });
     }
+
     public void getApplicationContext(Context context){
         this.context=context;
     }

@@ -18,16 +18,16 @@ public class MainService extends Service {
         new Thread(() -> new CrashChecker()).start();
         new Thread(() -> new CrashRadar()).start();
         // загрузка карты аварий
-//        new Thread(() -> {
-//            while(true) {
-//                serverConnection.get(null);
-//                try {
-//                    Thread.sleep(1000 * 60 * 5);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }).start();
+        new Thread(() -> {
+            while(true) {
+                serverConnection.get(null);
+                try {
+                    Thread.sleep(1000 * 60 * 5);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
     @Override
@@ -37,7 +37,7 @@ public class MainService extends Service {
 
     @Override
     public void onDestroy() {
-//        startService(new Intent(getApplicationContext(), MainService.class));
+//        startService(new Intent(getApplicationContext(), MainService.class)); вылетало
     }
 
 }
