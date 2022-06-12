@@ -3,20 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="HardcodedText"
     >
-    <group
-        android:checkableBehavior="single">
+    <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_back_home"
+            android:id="@+id/nav_home"
             android:title="Home" />
 
         <item
             android:id="@+id/nav_settings"
             android:title="Settings" />
 
-       <!-- <item
-            android:id="@+id/nav_logout"
-            android:title="Logout" />
-            -->
     </group>
 
 </menu>

@@ -19,14 +19,6 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Fraiccii"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
 
 </LinearLayout>
