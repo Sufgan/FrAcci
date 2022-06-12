@@ -68,7 +68,6 @@ public class CrashRadar {
     protected static void pushNoti() {
         Log.i("CrashRadar", "we find the crash");
         // посылка уведомления об аварии
-
         createNotificationChannel();
 
         NotificationCompat.Builder builder =

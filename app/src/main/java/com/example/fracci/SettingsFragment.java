@@ -1,4 +1,4 @@
-package com.example.fracci.server;
+package com.example.fracci;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
