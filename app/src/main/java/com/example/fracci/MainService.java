@@ -2,6 +2,7 @@ package com.example.fracci;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import android.widget.Toast;
 
 import com.example.fracci.crash.CrashChecker;
 import com.example.fracci.crash.CrashRadar;
@@ -13,6 +14,7 @@ public class MainService extends Service {
 
     @Override
     public void onCreate() {
+        Toast.makeText(this, "все, я работаю)", Toast.LENGTH_SHORT).show();
         serverConnection = new ServerConnection(this);
         new GeneralData(getApplicationContext());
         new Thread(() -> new CrashChecker()).start();
@@ -37,6 +39,7 @@ public class MainService extends Service {
 
     @Override
     public void onDestroy() {
+        Toast.makeText(this, "я перестал работать(", Toast.LENGTH_SHORT).show();
 //        startService(new Intent(getApplicationContext(), MainService.class)); вылетало
     }
 

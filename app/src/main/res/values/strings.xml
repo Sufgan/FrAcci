@@ -2,7 +2,8 @@
     <string name="app_name">FrAcci</string>
     <string name="defaultValue">-</string>
     <string name="reverse">reverse</string>
-    <string name="hi">HI</string>
+    <string name="hi">Приветствуем</string>
+
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
     <!-- TODO: Remove or change this placeholder text -->
