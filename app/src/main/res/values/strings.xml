@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FrAcci</string>
+    <string name="app_name"> FrAcci </string>
     <string name="defaultValue">-</string>
     <string name="reverse">reverse</string>
     <string name="hi">Приветствуем</string>

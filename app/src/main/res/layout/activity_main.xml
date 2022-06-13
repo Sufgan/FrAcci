@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:background="@color/white"
-    tools:cntext=".MainActivity"
+    tools:context=".MainActivity"
     tools:openDrawer="start">
 
     <RelativeLayout
@@ -25,8 +25,9 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="#DFFFFFFF"
         app:headerLayout="@layout/nav_header"
-        app:menu="@menu/nav_drawer_menu"/>
+        app:menu="@menu/nav_drawer_menu" />
 
 <!--    <include-->
 <!--        layout="@layout/toolbar"-->

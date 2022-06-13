@@ -15,7 +15,7 @@ public class MainService extends Service {
 
     @Override
     public void onCreate() {
-        Toast.makeText(this, "все, я работаю)", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "well done :)", Toast.LENGTH_SHORT).show();
         serverConnection = new ServerConnection(this);
         new GeneralData(getApplicationContext());
         new Thread(() -> new CrashChecker()).start();
@@ -40,7 +40,7 @@ public class MainService extends Service {
 
     @Override
     public void onDestroy() {
-        Toast.makeText(this, "я перестал работать(", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "I don't work :(", Toast.LENGTH_SHORT).show();
 //        startService(new Intent(getApplicationContext(), MainService.class)); вылетало
     }
 
