@@ -8,7 +8,6 @@ import android.widget.Toast;
 import com.example.fracci.crash.CrashChecker;
 import com.example.fracci.crash.CrashRadar;
 import com.example.fracci.crash.GeneralData;
-import com.example.fracci.server.ServerConnection;
 
 public class MainService extends Service {
     public static ServerConnection serverConnection;

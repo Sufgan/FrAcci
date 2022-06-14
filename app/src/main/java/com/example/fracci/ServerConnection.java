@@ -1,4 +1,4 @@
-package com.example.fracci.server;
+package com.example.fracci;
 
 
 import android.content.Context;
@@ -29,7 +29,7 @@ public class ServerConnection {
     private Context context;
 
     public ServerConnection(Context context){
-        retrofit=new Retrofit.Builder().baseUrl(" https://fracci.herokuapp.com").addConverterFactory(GsonConverterFactory.create()).build();
+        retrofit=new Retrofit.Builder().baseUrl("https://fracci.herokuapp.com").addConverterFactory(GsonConverterFactory.create()).build();
         serv=retrofit.create(CrashInterface.class);
         this.context=context;
     }
@@ -41,18 +41,14 @@ public class ServerConnection {
             public void onResponse(Call<ArrayList<Crash>> call, Response<ArrayList<Crash>> response) {
                 ArrayList<Crash> list=response.body();
                 GeneralData.addCrashMap(list);
-                //chat.setText(list.get(list.size()-1).lat+" "+list.get(list.size()-1).lng+" ");
             }
-            //http://192.168.0.160:8080/java/test     @Override
+            //http://192.168.0.160:8080/java/test
+            @Override
             public void onFailure(Call<ArrayList<Crash>> call, Throwable t) {
                 Toast.makeText(context, "ERROR", Toast.LENGTH_SHORT).show();
 
             }
         });
-    }
-
-    public void getApplicationContext(Context context){
-        this.context=context;
     }
 
     public void send(View view) {

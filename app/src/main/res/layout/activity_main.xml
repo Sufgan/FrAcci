@@ -9,7 +9,7 @@
     android:fitsSystemWindows="true"
     android:background="@color/white"
     tools:context=".MainActivity"
-    tools:openDrawer="start">
+    tools:openDrawer="end">
 
     <RelativeLayout
         android:id="@+id/place_holder"
@@ -29,10 +29,10 @@
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/nav_drawer_menu" />
 
-<!--    <include-->
-<!--        layout="@layout/toolbar"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"/>-->
+    <include
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>
 
